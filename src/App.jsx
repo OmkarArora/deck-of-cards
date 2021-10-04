@@ -17,12 +17,13 @@ function App() {
   }
 
   function pickCards(numOfElements) {
+    if (cardsData.length < numOfElements) return;
     let selectedCards = [];
     for (let i = 0; i < numOfElements; i++) {
-      let element = cards[Math.floor(Math.random() * cards.length)];
+      let element = cardsData[Math.floor(Math.random() * cardsData.length)];
       selectedCards.push(element);
     }
-    let remainingCards = cards.filter((card) => {
+    let remainingCards = cardsData.filter((card) => {
       for (let i = 0; i < selectedCards.length; i++) {
         if (
           card.value === selectedCards[i].value &&
