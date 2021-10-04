@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const [cardsData, setCardsData] = useState(cards);
   const [pickedCards, setPickedCards] = useState(null);
+  const [alert, setAlert] = useState("");
 
   function shuffleCards() {
     let shuffled = cards
@@ -14,10 +15,14 @@ function App() {
       .map(({ value }) => value);
     setCardsData(shuffled);
     setPickedCards(null);
+    setAlert("");
   }
 
   function pickCards(numOfElements) {
-    if (cardsData.length < numOfElements) return;
+    if (cardsData.length < numOfElements) {
+      setAlert("No more possibilities to pick another 5 cards");
+      return;
+    }
     let selectedCards = [];
     for (let i = 0; i < numOfElements; i++) {
       let element = cardsData[Math.floor(Math.random() * cardsData.length)];
@@ -52,6 +57,7 @@ function App() {
           Pick 5 Cards
         </button>
       </div>
+      {alert && <div className="alert">{alert}</div>}
       <div className="container-pickedCards">
         {pickedCards &&
           pickedCards.length > 0 &&
