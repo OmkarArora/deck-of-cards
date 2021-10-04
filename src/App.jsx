@@ -1,28 +1,39 @@
 import { useState } from "react";
-import "./App.css";
 import { PlayCard } from "./components/PlayCard/PlayCard";
 import { cards } from "./data";
+import "./App.css";
 
 function App() {
-  const [cardsData, setCardsdata] = useState(cards);
+  const [cardsData, setCardsData] = useState(cards);
   const [pickedCards, setPickedCards] = useState(null);
 
   function shuffleCards() {
-    let shuffled = cardsData
+    let shuffled = cards
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
-    setCardsdata(shuffled);
+    setCardsData(shuffled);
     setPickedCards(null);
   }
 
   function pickCards(numOfElements) {
     let selectedCards = [];
     for (let i = 0; i < numOfElements; i++) {
-      let element = cardsData[Math.floor(Math.random() * cardsData.length)];
+      let element = cards[Math.floor(Math.random() * cards.length)];
       selectedCards.push(element);
     }
+    let remainingCards = cards.filter((card) => {
+      for (let i = 0; i < selectedCards.length; i++) {
+        if (
+          card.value === selectedCards[i].value &&
+          card.suit === selectedCards[i].suit
+        )
+          return false;
+      }
+      return true;
+    });
     setPickedCards(selectedCards);
+    setCardsData(remainingCards);
   }
 
   return (
