@@ -9,3 +9,14 @@
   justify-content: center;
   margin-top: 2rem;
 }
+
+.container-pickedCards {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.container-pickedCards .playcard {
+  margin-left: 0;
+}
