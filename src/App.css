@@ -1,0 +1,11 @@
+.container-cards {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0 180px;
+}
+
+.container-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
