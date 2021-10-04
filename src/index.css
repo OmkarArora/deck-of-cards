@@ -13,7 +13,11 @@ body {
   background-color: var(--bg-color);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.btn-action {
+  cursor: pointer;
+  border: 1px solid grey;
+  background: #fff;
+  border-radius: 3px;
+  padding: 7px 14px;
+  font-size: 1.2rem;
 }
