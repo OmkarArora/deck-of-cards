@@ -1,7 +1,7 @@
 .container-cards {
   display: flex;
   justify-content: center;
-  margin: 40px auto 0 180px;
+  margin: 40px 1rem 0 180px;
 }
 
 .container-actions {
@@ -12,9 +12,10 @@
 }
 
 .container-pickedCards {
-  margin-top: 2rem;
+  margin: 2rem 1rem 1rem 1rem;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
